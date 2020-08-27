@@ -1,0 +1,1 @@
+Simpy open InfoTrackInterview.sln in IDE (VS2019) and run the project
