@@ -1,0 +1,31 @@
+﻿@model InfoTrackInterview.Models.HomeViewModel
+
+
+@{
+    ViewBag.Title = "Infotrak Interview Project";
+}
+
+
+<div class="jumbotron bg-dark text-white">
+    <h2 class="display-4">Hello, @System.Environment.UserName</h2>
+    <p class="lead">This simple MVC project provides functionality for checking at what position website shows in Google Search.</p>
+    <hr class="my-4">
+    @using (Html.BeginForm("Search", "Home", FormMethod.Post))
+    {
+        <div class="form-horizontal">
+            <p>
+                Please type website url you would like to find index of on Google Search
+                @Html.EditorFor(model => model.KeyWord, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.KeyWord, "", new { @class = "text-danger" })
+            </p>
+            <p>
+                Please type in search phrase you would like to query Google for
+                @Html.EditorFor(model => model.Phrase, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Phrase, "", new { @class = "text-danger" })
+            </p>
+            <br />
+            <p><button class="btn btn-primary btn-lg" type="submit">Search Google &raquo;</button></p>
+        </div>
+    }
+
+</div>

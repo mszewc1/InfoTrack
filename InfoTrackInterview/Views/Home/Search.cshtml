@@ -1,0 +1,36 @@
+﻿@model InfoTrackInterview.Models.HomeViewModel
+
+@{
+    ViewBag.Title = "InfoTrack";
+}
+
+    <div class="jumbotron">
+        <h2>Your search results</h2>
+        <hr class="my-4">
+
+        @if (Model.GoogleSearchResultIndexes.Any())
+        {
+            <p>Keyword: <i>"@Model.KeyWord"</i> appeared on Google Search Result page for phrase <i>"@Model.Phrase"</i> @Model.GoogleSearchResultIndexes.Count time(s).</p>
+            <p>
+                It appeared as search result number(s):
+                @foreach (var index in Model.GoogleSearchResultIndexes)
+                {
+                    @index
+                    <span>&nbsp</span>
+                }
+            </p>
+        }
+
+        else
+        {
+            <p><i>"@Model.KeyWord"</i> have not appeared on Google Search Result page for phrase <i>"@Model.Phrase"</i></p>
+        }
+
+        <p>
+            <a href="@Model.SearchedUrl" class="btn btn-primary btn-lg">Check it out for yourself &raquo;</a>&nbsp;
+            <a href="/Home/Index" class="btn btn-primary btn-lg">Try different search &raquo;</a>
+        </p>
+
+    </div>
+
+
